@@ -54,7 +54,7 @@ export default function Projects() {
                         return (
                             <div
                                 key={project.id}
-                                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-purple-700 px-6 py-10 md:px-12 md:py-14 animate-fade-in font-montserrat relative`}
+                                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 backdrop-blur-lg rounded-3xl shadow-2xl px-6 py-10 md:px-12 md:py-14 animate-fade-in font-montserrat relative`}
                                 style={{ animationDelay: `${0.1 * idx}s`, flexDirection: isEven ? 'row' : 'row-reverse' }}
                             >
                                 {/* Project Image */}
