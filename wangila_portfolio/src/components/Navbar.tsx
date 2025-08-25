@@ -1,47 +1,53 @@
 "use client";
 
+
 import Link from "next/link";
 import { useState } from "react";
+import { FaGlobe } from "react-icons/fa";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#1A0B2E] text-white shadow-md fixed w-full z-50">
+        <nav className="backdrop-blur-lg bg-[#1A0B2E]/80 text-white shadow-lg fixed w-full z-50 border-b border-purple-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo */}
-                    <div className="flex-shrink-0">
-                        <Link href="/" className="text-2xl font-bold tracking-wide">
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                        <FaGlobe className="text-purple-400 text-2xl" />
+                        <Link href="/" className="text-2xl font-extrabold tracking-wide hover:text-purple-400 transition-colors">
                             Wangila
                         </Link>
                     </div>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-8">
-                        <Link href="/" className="hover:text-purple-400 transition-colors">
-                            Home
-                        </Link>
-                        <Link href="/about" className="hover:text-purple-400 transition-colors">
-                            About
-                        </Link>
-                        <Link href="/projects" className="hover:text-purple-400 transition-colors">
-                            Projects
-                        </Link>
-                        <Link href="/contact" className="hover:text-purple-400 transition-colors">
-                            Contact
-                        </Link>
+                        {[
+                            { href: '/', label: 'Home' },
+                            { href: '/about', label: 'About' },
+                            { href: '/projects', label: 'Projects' },
+                            { href: '/contact', label: 'Contact' },
+                        ].map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className="relative group font-medium px-2 py-1 transition-colors duration-200 hover:text-purple-400"
+                            >
+                                {item.label}
+                                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                            </Link>
+                        ))}
                     </div>
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="focus:outline-none"
+                            className="focus:outline-none p-2 rounded-full hover:bg-purple-900/30 transition-colors"
                             aria-label="Toggle Menu"
                         >
                             <svg
-                                className="w-6 h-6"
+                                className="w-7 h-7"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -68,34 +74,33 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden bg-[#1A0B2E] px-2 pt-2 pb-4 space-y-1">
-                    <Link
-                        href="/"
-                        className="block px-3 py-2 rounded-md hover:bg-purple-900 transition-colors"
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        href="/about"
-                        className="block px-3 py-2 rounded-md hover:bg-purple-900 transition-colors"
-                    >
-                        About
-                    </Link>
-                    <Link
-                        href="/projects"
-                        className="block px-3 py-2 rounded-md hover:bg-purple-900 transition-colors"
-                    >
-                        Projects
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="block px-3 py-2 rounded-md hover:bg-purple-900 transition-colors"
-                    >
-                        Contact
-                    </Link>
+            <div
+                className={`md:hidden fixed top-16 left-0 w-full bg-[#1A0B2E]/95 backdrop-blur-lg border-b border-purple-900 shadow-lg transition-all duration-300 z-40 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+            >
+                <div className="px-4 py-4 space-y-2">
+                    {[
+                        { href: '/', label: 'Home' },
+                        { href: '/about', label: 'About' },
+                        { href: '/projects', label: 'Projects' },
+                        { href: '/contact', label: 'Contact' },
+                    ].map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2 rounded-lg font-medium hover:bg-purple-900/40 transition-colors duration-200"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
                 </div>
-            )}
+            </div>
+
+            {/* Custom styles for underline animation */}
+            <style jsx>{`
+                .group:hover .group-hover\:scale-x-100 {
+                    transform: scaleX(1);
+                }
+            `}</style>
         </nav>
     );
 }

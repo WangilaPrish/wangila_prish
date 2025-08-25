@@ -42,13 +42,13 @@ export default function Contact() {
                 </form>
 
                 <div className="mt-12 flex justify-center gap-8 text-gray-300">
-                    <a href="mailto:your.email@example.com" className="hover:text-white">
+                    <a href="mailto:nabwonyaprish@gmail.com" className="hover:text-white">
                         Email
                     </a>
-                    <a href="https://github.com/yourusername" className="hover:text-white">
+                    <a href="https://github.com/WangilaPrish" className="hover:text-white">
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/yourusername" className="hover:text-white">
+                    <a href="https://www.linkedin.com/in/priscilla-wangila/" className="hover:text-white">
                         LinkedIn
                     </a>
                 </div>
