@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
 import React from 'react'
 
 const page = () => {
@@ -7,6 +8,7 @@ const page = () => {
         <div>
             <Navbar />
             <Hero />
+            <About />
         </div>
     )
 }
