@@ -23,14 +23,15 @@ export default function Navbar() {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-8">
                         {[
-                            { href: '/', label: 'Home' },
-                            { href: '/about', label: 'About' },
-                            { href: '/projects', label: 'Projects' },
-                            { href: '/contact', label: 'Contact' },
+                            { href: '/#hero', label: 'Home' },
+                            { href: '/#about', label: 'About' },
+                            { href: '/#projects', label: 'Projects' },
+                            { href: '/#contact', label: 'Contact' },
                         ].map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
+                                scroll={true}
                                 className="relative group font-medium px-2 py-1 transition-colors duration-200 hover:text-purple-400"
                             >
                                 {item.label}
@@ -79,14 +80,15 @@ export default function Navbar() {
             >
                 <div className="px-4 py-4 space-y-2">
                     {[
-                        { href: '/', label: 'Home' },
-                        { href: '/about', label: 'About' },
-                        { href: '/projects', label: 'Projects' },
-                        { href: '/contact', label: 'Contact' },
+                        { href: '/#hero', label: 'Home' },
+                        { href: '/#about', label: 'About' },
+                        { href: '/#projects', label: 'Projects' },
+                        { href: '/#contact', label: 'Contact' },
                     ].map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
+                            scroll={true}
                             className="block px-4 py-2 rounded-lg font-medium hover:bg-purple-900/40 transition-colors duration-200"
                         >
                             {item.label}
