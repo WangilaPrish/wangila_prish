@@ -2,16 +2,16 @@
 import { useEffect, useRef } from 'react';
 
 const technologies = [
-    { name: "Next.js", icon: "/tech/nextjs.svg" },
-    { name: "React", icon: "/tech/react.svg" },
-    { name: "TypeScript", icon: "/tech/typescript.svg" },
-    { name: "JavaScript", icon: "/tech/javascript.svg" },
-    { name: "Python", icon: "/tech/python.svg" },
-    { name: "MySQL", icon: "/tech/mysql.svg" },
-    { name: "Tailwind CSS", icon: "/tech/tailwind.svg" },
-    { name: "Node.js", icon: "/tech/nodejs.svg" },
-    { name: "Git", icon: "/tech/git.svg" },
-    { name: "Figma", icon: "/tech/figma.svg" },
+    { name: "Next.js", icon: "/public/next.svg" },
+    { name: "React", icon: "/public/react.svg" },
+    { name: "TypeScript", icon: "/public/typescript.svg" },
+    { name: "JavaScript", icon: "/public/javascript.svg" },
+    { name: "Python", icon: "/public/python.svg" },
+    { name: "MySQL", icon: "/public/mysql.svg" },
+    { name: "Tailwind CSS", icon: "/public/tailwind.svg" },
+    { name: "Node.js", icon: "/public/node.svg" },
+    { name: "Git", icon: "/public/git.svg" },
+    { name: "Figma", icon: "/public/figma.svg" },
 ];
 
 function Technologies() {
