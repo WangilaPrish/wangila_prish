@@ -12,11 +12,11 @@ function About() {
 
             <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 relative z-10 py-10 md:py-0">
                 {/* Image on the left */}
-                <div className="flex-shrink-0 shadow-2xl backdrop-blur-lg bg-purple-900/40 rounded-2xl p-3 border-4 border-purple-600 animate-fade-in md:mr-10">
+                <div className="flex-shrink-0 shadow-2xl backdrop-blur-lg bg-purple-900/40 rounded-2xl p-4 border-4 border-purple-600 animate-fade-in md:mr-10" style={{ height: '30rem', width: '22rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <img
                         src="/prishwangila.jpg"
                         alt="Prish Wangila"
-                        className="w-72 h-72 object-cover rounded-xl border-4 border-purple-400"
+                        className="w-80 h-110 object-cover rounded-xl border-4 border-purple-400"
                         style={{ boxShadow: "0 8px 32px 0 rgba(80,0,120,0.25)" }}
                     />
                 </div>
