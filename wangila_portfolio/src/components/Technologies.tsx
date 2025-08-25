@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from 'react';
 
 const technologies = [
     { name: "Next.js", icon: "/tech/nextjs.svg" },
@@ -14,6 +15,25 @@ const technologies = [
 ];
 
 function Technologies() {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+        let speed = 0.5; // px per frame
+        let frameId: number;
+        function animateScroll() {
+            if (!scrollContainer) return;
+            scrollContainer.scrollLeft += speed;
+            if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+                scrollContainer.scrollLeft = 0;
+            }
+            frameId = requestAnimationFrame(animateScroll);
+        }
+        frameId = requestAnimationFrame(animateScroll);
+        return () => cancelAnimationFrame(frameId);
+    }, []);
+
     return (
         <section
             id="technologies"
@@ -25,7 +45,7 @@ function Technologies() {
             <div className="max-w-6xl mx-auto relative z-10">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-purple-300 drop-shadow-lg animate-fade-in font-montserrat">Technologies I Know</h2>
 
-                <div className="w-full overflow-x-auto pb-4">
+                <div className="w-full overflow-x-auto pb-4" ref={scrollRef} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     <div className="flex gap-8 items-center min-w-max px-2" style={{ scrollSnapType: 'x mandatory' }}>
                         {technologies.map((tech, idx) => (
                             <div
@@ -54,6 +74,9 @@ function Technologies() {
                 .animate-fade-in {
                     animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
                 }
+                /* Hide scrollbar for all browsers */
+                [ref="scrollRef"]::-webkit-scrollbar { display: none; }
+                [ref="scrollRef"] { -ms-overflow-style: none; scrollbar-width: none; }
             `}</style>
         </section>
     );
