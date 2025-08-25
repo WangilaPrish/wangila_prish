@@ -13,9 +13,9 @@ body {
 }
 
 
-.montserrat-<uniquifier> {
+.font-montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 400;
   font-style: normal;
 }
