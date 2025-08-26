@@ -2,16 +2,16 @@
 import { useEffect, useRef } from 'react';
 
 const technologies = [
-    { name: "Next.js", icon: "/next.svg" },
-    { name: "React", icon: "/react.svg" },
-    { name: "TypeScript", icon: "/typescript.svg" },
-    { name: "JavaScript", icon: "/javascript.svg" },
-    { name: "Python", icon: "/python.svg" },
-    { name: "MySQL", icon: "/mysql.svg" },
-    { name: "Tailwind CSS", icon: "/tailwind.svg" },
-    { name: "Node.js", icon: "/node.svg" },
-    { name: "Git", icon: "/git.svg" },
-    { name: "Figma", icon: "/figma.svg" },
+    { name: "Next.js", icon: "/next-outline.svg" },
+    { name: "React", icon: "/react-outline.svg" },
+    { name: "TypeScript", icon: "/typescript-outline.svg" },
+    { name: "JavaScript", icon: "/javascript-outline.svg" },
+    { name: "Python", icon: "/python-outline.svg" },
+    { name: "MySQL", icon: "/mysql-outline.svg" },
+    { name: "Tailwind CSS", icon: "/tailwind-outline.svg" },
+    { name: "Node.js", icon: "/node-outline.svg" },
+    { name: "Git", icon: "/git-outline.svg" },
+    { name: "Figma", icon: "/figma-outline.svg" },
 ];
 
 function Technologies() {
@@ -57,6 +57,7 @@ function Technologies() {
                                     src={tech.icon}
                                     alt={tech.name}
                                     className="w-20 h-20 object-contain drop-shadow-lg mb-2"
+                                    style={{ filter: 'invert(1) grayscale(1) opacity(0.7)' }}
                                 />
                                 <span className="text-base font-semibold text-purple-200 font-montserrat">{tech.name}</span>
                             </div>
