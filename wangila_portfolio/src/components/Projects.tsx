@@ -59,19 +59,26 @@ export default function Projects() {
                             >
                                 {/* Project Image */}
                                 <div className="w-full md:w-1/2 flex justify-center items-center">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full max-w-lg h-64 object-cover rounded-2xl shadow-lg border border-purple-700"
-                                    />
+                                    <div className="relative w-full max-w-lg h-64 flex items-center justify-center">
+                                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+                                            background: 'radial-gradient(circle at 60% 40%, rgba(168,139,250,0.18) 0%, transparent 70%)',
+                                            zIndex: 0
+                                        }} />
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-64 object-cover rounded-2xl shadow-2xl animate-float-img"
+                                            style={{ border: 'none', zIndex: 1, position: 'relative' }}
+                                        />
+                                    </div>
                                 </div>
                                 {/* Project Details */}
                                 <div className="w-full md:w-1/2 flex flex-col justify-center items-start relative">
                                     <span className="text-purple-400 font-semibold mb-2 text-lg">Featured Project</span>
                                     <h3 className="text-3xl font-bold mb-4 text-white drop-shadow font-montserrat relative z-10">{project.title}</h3>
-                                    {/* Floating glassmorphism description */}
-                                    <div className="absolute left-0 top-0 z-20" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px' }}>
-                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl border border-purple-400/30 px-7 py-5 text-gray-100 text-base font-montserrat" style={{ boxShadow: '0 8px 32px 0 rgba(168,139,250,0.18)' }}>
+                                    {/* Floating glassmorphism description with animation */}
+                                    <div className="absolute left-0 top-0 z-20 animate-float-desc" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px' }}>
+                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl px-7 py-5 text-gray-100 text-base font-montserrat" style={{ boxShadow: '0 12px 48px 0 rgba(168,139,250,0.22)' }}>
                                             {project.description}
                                         </div>
                                     </div>
@@ -103,7 +110,7 @@ export default function Projects() {
                                     <span className="text-3xl text-purple-300">✽</span>
                                     <span className="text-3xl text-purple-300">✽</span>
                                 </div>
-                                {/* Curved SVG connector to next project */}
+                                {/* Curved SVG connector to next project with glow */}
                                 {idx < projects.length - 1 && (
                                     <svg
                                         className="absolute"
@@ -125,7 +132,13 @@ export default function Projects() {
                                             strokeWidth="3"
                                             strokeLinecap="round"
                                             opacity="0.7"
+                                            filter="url(#glow)"
                                         />
+                                        <defs>
+                                            <filter id="glow" x="-10" y="-10" width="140" height="60">
+                                                <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#a78bfa" flood-opacity="0.5" />
+                                            </filter>
+                                        </defs>
                                     </svg>
                                 )}
                             </div>
@@ -134,7 +147,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            {/* Custom keyframes for fade-in animation */}
+            {/* Custom keyframes for fade-in and float animation */}
             <style jsx>{`
                 @keyframes fade-in {
                     from { opacity: 0; transform: translateY(20px); }
@@ -142,6 +155,22 @@ export default function Projects() {
                 }
                 .animate-fade-in {
                     animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
+                }
+                @keyframes float-img {
+                    0% { transform: translateY(0px) scale(1); }
+                    50% { transform: translateY(-12px) scale(1.03); }
+                    100% { transform: translateY(0px) scale(1); }
+                }
+                .animate-float-img {
+                    animation: float-img 7s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+                }
+                @keyframes float-desc {
+                    0% { transform: translateY(-3.5rem) translateX(-2.5rem) scale(1); }
+                    50% { transform: translateY(-4.5rem) translateX(-2.5rem) scale(1.03); }
+                    100% { transform: translateY(-3.5rem) translateX(-2.5rem) scale(1); }
+                }
+                .animate-float-desc {
+                    animation: float-desc 8s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
                 }
             `}</style>
         </section>
