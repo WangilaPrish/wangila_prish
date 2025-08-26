@@ -48,7 +48,7 @@ export default function Projects() {
             <div className="max-w-6xl mx-auto relative z-10">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-purple-300 drop-shadow-lg animate-fade-in font-montserrat">Projects</h2>
 
-                <div className="flex flex-col gap-24">
+                <div className="flex flex-col gap-32 relative">
                     {projects.map((project, idx) => {
                         const isEven = idx % 2 === 0;
                         return (
@@ -66,13 +66,16 @@ export default function Projects() {
                                     />
                                 </div>
                                 {/* Project Details */}
-                                <div className="w-full md:w-1/2 flex flex-col justify-center items-start">
+                                <div className="w-full md:w-1/2 flex flex-col justify-center items-start relative">
                                     <span className="text-purple-400 font-semibold mb-2 text-lg">Featured Project</span>
-                                    <h3 className="text-3xl font-bold mb-4 text-white drop-shadow font-montserrat">{project.title}</h3>
-                                    <div className="bg-black/40 rounded-xl p-6 mb-6 shadow-lg text-gray-200 text-base font-montserrat max-w-md">
-                                        {project.description}
+                                    <h3 className="text-3xl font-bold mb-4 text-white drop-shadow font-montserrat relative z-10">{project.title}</h3>
+                                    {/* Floating glassmorphism description */}
+                                    <div className="absolute left-0 top-0 z-20" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px' }}>
+                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl border border-purple-400/30 px-7 py-5 text-gray-100 text-base font-montserrat" style={{ boxShadow: '0 8px 32px 0 rgba(168,139,250,0.18)' }}>
+                                            {project.description}
+                                        </div>
                                     </div>
-                                    <div className="flex gap-4 mt-auto">
+                                    <div className="flex gap-4 mt-auto relative z-10">
                                         {project.link && (
                                             <a
                                                 href={project.link}
@@ -100,6 +103,31 @@ export default function Projects() {
                                     <span className="text-3xl text-purple-300">✽</span>
                                     <span className="text-3xl text-purple-300">✽</span>
                                 </div>
+                                {/* Curved SVG connector to next project */}
+                                {idx < projects.length - 1 && (
+                                    <svg
+                                        className="absolute"
+                                        style={{
+                                            left: isEven ? '60%' : '40%',
+                                            bottom: '-48px',
+                                            zIndex: 5,
+                                            width: '120px',
+                                            height: '40px',
+                                            pointerEvents: 'none',
+                                        }}
+                                        viewBox="0 0 120 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d={isEven ? 'M0,20 Q60,0 120,20' : 'M120,20 Q60,40 0,20'}
+                                            stroke="#a78bfa"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            opacity="0.7"
+                                        />
+                                    </svg>
+                                )}
                             </div>
                         );
                     })}
