@@ -2,50 +2,50 @@
 
 
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
-function CodingMatrix() {
-    const canvasRef = useRef(null);
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        const w = canvas.width = 320;
-        const h = canvas.height = 400;
-        const cols = Math.floor(w / 16);
-        const ypos = Array(cols).fill(0);
-        const matrixChars = "abcdefghijklmnopqrstuvwxyz0123456789<>[]{}()$#@!%&*+-=;:,./?";
-        let animationFrameId;
 
-        function matrix() {
-            ctx.fillStyle = "rgba(20, 10, 40, 0.15)";
-            ctx.fillRect(0, 0, w, h);
-            ctx.font = "16px monospace";
-            ctx.fillStyle = "#a78bfa";
-            for (let i = 0; i < cols; i++) {
-                const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-                ctx.fillText(text, i * 16, ypos[i] * 16);
-                if (ypos[i] * 16 > h && Math.random() > 0.975) {
-                    ypos[i] = 0;
-                } else {
-                    ypos[i]++;
-                }
-            }
-            animationFrameId = requestAnimationFrame(matrix);
-        }
-        matrix();
-        return () => cancelAnimationFrame(animationFrameId);
+const codeLines = [
+    "function greet(name) {",
+    "  return `Hello, ${name}!`;",
+    "}",
+    "const user = 'Prish';",
+    "console.log(greet(user));",
+    "// Full-stack developer & designer",
+    "const skills = ['React', 'Next.js', 'TypeScript', 'Node.js'];",
+    "skills.forEach(skill => console.log(skill));",
+];
+
+function AnimatedCode() {
+    const [offset, setOffset] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setOffset((prev) => (prev + 1) % codeLines.length);
+        }, 1200);
+        return () => clearInterval(interval);
     }, []);
     return (
-        <canvas
-            ref={canvasRef}
-            width={320}
-            height={400}
-            className="rounded-xl shadow-2xl border-2 border-purple-700 bg-black/60"
-            aria-label="Coding Matrix Animation"
-        />
+        <div className="w-[320px] h-[220px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 shadow-2xl rounded-xl">
+            <pre className="text-purple-200 text-lg font-mono px-6 py-4 leading-relaxed">
+                {codeLines.map((line, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.5 }}
+                        style={{
+                            display: i === offset ? 'block' : 'none',
+                        }}
+                    >
+                        {line}
+                    </motion.div>
+                ))}
+            </pre>
+        </div>
     );
 }
 
@@ -77,9 +77,9 @@ export default function Hero() {
                 </Link>
             </div>
 
-            {/* Coding Matrix Animation on the right */}
+            {/* Animated code snippet on the right */}
             <div className="relative z-10 flex-1 flex justify-center items-center mt-12 md:mt-0 md:ml-12">
-                <CodingMatrix />
+                <AnimatedCode />
             </div>
 
             {/* Add some custom keyframes for fade-in animation */}
