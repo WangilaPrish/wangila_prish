@@ -28,8 +28,12 @@ function AnimatedCode() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className="w-[320px] h-[220px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 shadow-2xl rounded-xl">
-            <pre className="text-purple-200 text-lg font-mono px-6 py-4 leading-relaxed">
+        <div className="relative w-[340px] h-[240px] flex flex-col justify-center items-start overflow-visible bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-400/40" style={{ boxShadow: '0 8px 32px 0 rgba(80,0,160,0.25)', border: '2px solid rgba(168,139,250,0.3)' }}>
+            <div className="absolute -inset-2 rounded-2xl pointer-events-none" style={{
+                background: 'radial-gradient(circle at 80% 20%, rgba(168,139,250,0.15) 0%, transparent 70%)',
+                zIndex: 0
+            }} />
+            <pre className="relative z-10 text-purple-200 text-lg font-mono px-8 py-6 leading-relaxed overflow-visible">
                 {codeLines.map((line, i) => (
                     <motion.div
                         key={i}
@@ -39,6 +43,7 @@ function AnimatedCode() {
                         transition={{ duration: 0.5 }}
                         style={{
                             display: i === offset ? 'block' : 'none',
+                            textShadow: '0 2px 8px rgba(168,139,250,0.5)',
                         }}
                     >
                         {line}
