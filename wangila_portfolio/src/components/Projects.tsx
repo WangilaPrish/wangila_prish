@@ -71,44 +71,35 @@ export default function Projects() {
             <div className="max-w-6xl mx-auto relative z-10">
                 <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-purple-300 drop-shadow-lg animate-fade-in font-montserrat">Projects</h2>
 
-                <div className="flex flex-col gap-32 relative">
+                <div className="flex flex-col gap-20 relative">
                     {projects.map((project, idx) => {
                         const isEven = idx % 2 === 0;
                         return (
                             <div
                                 key={project.id}
-                                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 backdrop-blur-lg rounded-3xl shadow-2xl px-6 py-10 md:px-12 md:py-14 animate-fade-in font-montserrat relative`}
-                                style={{ animationDelay: `${0.1 * idx}s`, flexDirection: isEven ? 'row' : 'row-reverse' }}
+                                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-transparent px-6 py-10 md:px-12 md:py-14 font-montserrat relative`}
+                                style={{ flexDirection: isEven ? 'row' : 'row-reverse' }}
                             >
                                 {/* Project Image */}
                                 <div className="w-full md:w-1/2 flex justify-center items-center">
-                                    <div className="relative w-full max-w-lg h-64 flex items-center justify-center">
-                                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                                            background: 'radial-gradient(circle at 60% 40%, rgba(168,139,250,0.18) 0%, transparent 70%)',
-                                            zIndex: 0
-                                        }} />
-                                        <Image
-                                            src={project.image}
-                                            alt={project.title}
-                                            width={384}
-                                            height={256}
-                                            className="w-full h-64 object-contain rounded-2xl shadow-2xl animate-float-img border border-white/10"
-                                            style={{ zIndex: 1, position: 'relative', filter: 'drop-shadow(0 0 16px #a259ff)' }}
-                                        />
-                                    </div>
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        width={500}
+                                        height={300}
+                                        className="w-full h-72 object-contain"
+                                        style={{ position: 'relative' }}
+                                    />
                                 </div>
                                 {/* Project Details */}
                                 <div className="w-full md:w-1/2 flex flex-col justify-center items-start relative">
                                     <span className="text-purple-400 font-semibold mb-2 text-lg">Featured Project</span>
-                                    <h3 className="text-3xl font-bold mb-4 text-white drop-shadow font-montserrat relative z-10">{project.title}</h3>
-                                    {/* Floating glassmorphism description with animation */}
-                                    <div className="absolute left-0 top-0 z-20 animate-float-desc" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px', filter: 'drop-shadow(0 0 12px #a259ff)' }}>
-                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl px-7 py-5 text-gray-100 text-base font-montserrat border border-white/20" style={{ boxShadow: '0 12px 48px 0 rgba(168,139,250,0.22)' }}>
-                                            {project.description}
-                                        </div>
+                                    <h3 className="text-3xl font-bold mb-4 text-white font-montserrat relative z-10">{project.title}</h3>
+                                    <div className="mb-4 text-base text-gray-100 font-montserrat">
+                                        {project.description}
                                     </div>
                                     <TechIcons tech={project.tech} />
-                                    <div className="flex gap-4 mt-auto relative z-10">
+                                    <div className="flex gap-4 mt-4 relative z-10">
                                         {project.link && (
                                             <a
                                                 href={project.link}
@@ -131,69 +122,13 @@ export default function Projects() {
                                         )}
                                     </div>
                                 </div>
-                                {/* Decorative icons only for first project in each row */}
-                                <div className="absolute left-8 bottom-8 flex gap-2">
-                                    <span className="text-3xl text-purple-300 animate-pulse">✽</span>
-                                    <span className="text-3xl text-purple-300 animate-pulse">✽</span>
-                                </div>
-                                {/* Curved SVG connector to next project with glow */}
-                                {idx < projects.length - 1 && (
-                                    <svg
-                                        className="absolute animate-fade-in"
-                                        style={{
-                                            left: isEven ? '60%' : '40%',
-                                            bottom: '-32px',
-                                            zIndex: 5,
-                                            width: '120px',
-                                            height: '40px',
-                                            pointerEvents: 'none',
-                                        }}
-                                        viewBox="0 0 120 40"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d={isEven ? 'M0,20 Q60,0 120,20' : 'M120,20 Q60,40 0,20'}
-                                            stroke="#a78bfa"
-                                            strokeWidth="4"
-                                            strokeLinecap="round"
-                                            opacity="0.9"
-                                            style={{ filter: 'drop-shadow(0 0 8px #a259ff)' }}
-                                        />
-                                    </svg>
-                                )}
                             </div>
                         );
                     })}
                 </div>
             </div>
 
-            {/* Custom keyframes for fade-in and float animation */}
-            <style jsx>{`
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fade-in {
-                    animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
-                }
-                @keyframes float-img {
-                    0% { transform: translateY(0px) scale(1); }
-                    50% { transform: translateY(-12px) scale(1.03); }
-                    100% { transform: translateY(0px) scale(1); }
-                }
-                .animate-float-img {
-                    animation: float-img 7s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
-                }
-                @keyframes float-desc {
-                    0% { transform: translateY(-3.5rem) translateX(-2.5rem) scale(1); }
-                    50% { transform: translateY(-4.5rem) translateX(-2.5rem) scale(1.03); }
-                    100% { transform: translateY(-3.5rem) translateX(-2.5rem) scale(1); }
-                }
-                .animate-float-desc {
-                    animation: float-desc 8s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
-                }
-            `}</style>
+            {/* Removed custom keyframes and animation styles for normal layout */}
         </section>
     );
 }
