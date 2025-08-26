@@ -12,12 +12,17 @@ function About() {
 
             <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 relative z-10 py-10 md:py-0">
                 {/* Image on the left */}
-                <div className="flex-shrink-0 shadow-2xl backdrop-blur-lg bg-purple-900/40 rounded-2xl p-4 border-4 border-purple-600 animate-fade-in md:mr-10 float-image" style={{ height: '30rem', width: '22rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="flex-shrink-0 relative animate-fade-in md:mr-10" style={{ height: '30rem', width: '22rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {/* Soft color glow behind image */}
+                    <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+                        background: 'radial-gradient(circle at 60% 40%, rgba(168,139,250,0.25) 0%, transparent 70%)',
+                        zIndex: 0
+                    }} />
                     <img
                         src="/prishwangila.jpg"
                         alt="Prish Wangila"
-                        className="w-80 h-110 object-cover rounded-xl border-4 border-purple-400 animate-float"
-                        style={{ boxShadow: "0 8px 32px 0 rgba(80,0,120,0.25)" }}
+                        className="w-80 h-110 object-cover rounded-2xl animate-float"
+                        style={{ boxShadow: "0 8px 32px 0 rgba(80,0,120,0.18)", border: "none", zIndex: 1, position: "relative" }}
                     />
                 </div>
 
@@ -46,12 +51,13 @@ function About() {
                 }
                 .delay-100 { animation-delay: 0.1s; }
                 @keyframes float {
-                    0% { transform: translateY(0px); }
-                    50% { transform: translateY(-24px) scale(1.04); box-shadow: 0 16px 48px 0 rgba(80,0,120,0.18); }
-                    100% { transform: translateY(0px); }
+                    0% { transform: translateY(0px) scale(1); }
+                    40% { transform: translateY(-18px) scale(1.03); }
+                    60% { transform: translateY(-18px) scale(1.03); }
+                    100% { transform: translateY(0px) scale(1); }
                 }
                 .animate-float {
-                    animation: float 3s ease-in-out infinite;
+                    animation: float 4s cubic-bezier(0.4,0,0.2,1) infinite;
                 }
             `}</style>
         </section>
