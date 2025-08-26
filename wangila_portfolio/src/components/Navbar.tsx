@@ -20,7 +20,7 @@ export default function Navbar() {
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 14 }}
-            className="backdrop-blur-lg bg-gradient-to-r from-purple-700/90 via-blue-600/80 to-purple-900/90 text-white shadow-2xl fixed w-full z-50 border-b border-purple-900"
+            className="backdrop-blur-lg bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black text-white shadow-2xl fixed w-full z-50 border-b border-purple-900"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
