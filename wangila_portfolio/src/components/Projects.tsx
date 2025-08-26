@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface Project {
     id: number;
     title: string;
@@ -7,6 +9,7 @@ interface Project {
     image: string;
     link?: string;
     repo?: string;
+    tech?: string[];
 }
 
 const projects: Project[] = [
@@ -14,27 +17,47 @@ const projects: Project[] = [
         id: 1,
         title: "Portfolio Website",
         description: "A personal portfolio built with Next.js, TypeScript, and Tailwind CSS.",
-        image: "/projects/portfolio.png",
+        image: "/next.svg",
         link: "#",
         repo: "#",
+        tech: ["nextjs", "typescript", "tailwind"],
     },
     {
         id: 2,
         title: "E-commerce Store",
         description: "Online shop with shopping cart, product pages, and Stripe integration.",
-        image: "/projects/store.png",
+        image: "/file.svg",
         link: "#",
         repo: "#",
+        tech: ["react", "stripe", "tailwind"],
     },
     {
         id: 3,
         title: "Blog Platform",
         description: "Dynamic blog with CMS integration and Markdown support.",
-        image: "/projects/blog.png",
+        image: "/window.svg",
         link: "#",
         repo: "#",
+        tech: ["react", "cms", "tailwind"],
     },
 ];
+function TechIcons({ tech }: { tech?: string[] }) {
+    if (!tech) return null;
+    return (
+        <div className="flex gap-2 mt-2">
+            {tech.map((t) => (
+                <Image
+                    key={t}
+                    src={`/${t}.svg`}
+                    alt={t}
+                    width={28}
+                    height={28}
+                    className="drop-shadow-lg rounded-full bg-gradient-to-br from-purple-400 to-indigo-600 p-1 border border-white/20"
+                />
+            ))}
+        </div>
+    );
+}
 
 export default function Projects() {
     return (
@@ -64,11 +87,13 @@ export default function Projects() {
                                             background: 'radial-gradient(circle at 60% 40%, rgba(168,139,250,0.18) 0%, transparent 70%)',
                                             zIndex: 0
                                         }} />
-                                        <img
+                                        <Image
                                             src={project.image}
                                             alt={project.title}
-                                            className="w-full h-64 object-cover rounded-2xl shadow-2xl animate-float-img"
-                                            style={{ border: 'none', zIndex: 1, position: 'relative' }}
+                                            width={384}
+                                            height={256}
+                                            className="w-full h-64 object-contain rounded-2xl shadow-2xl animate-float-img border border-white/10"
+                                            style={{ zIndex: 1, position: 'relative', filter: 'drop-shadow(0 0 16px #a259ff)' }}
                                         />
                                     </div>
                                 </div>
@@ -77,11 +102,12 @@ export default function Projects() {
                                     <span className="text-purple-400 font-semibold mb-2 text-lg">Featured Project</span>
                                     <h3 className="text-3xl font-bold mb-4 text-white drop-shadow font-montserrat relative z-10">{project.title}</h3>
                                     {/* Floating glassmorphism description with animation */}
-                                    <div className="absolute left-0 top-0 z-20 animate-float-desc" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px' }}>
-                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl px-7 py-5 text-gray-100 text-base font-montserrat" style={{ boxShadow: '0 12px 48px 0 rgba(168,139,250,0.22)' }}>
+                                    <div className="absolute left-0 top-0 z-20 animate-float-desc" style={{ transform: 'translateY(-3.5rem) translateX(-2.5rem)', pointerEvents: 'none', minWidth: '320px', maxWidth: '420px', filter: 'drop-shadow(0 0 12px #a259ff)' }}>
+                                        <div className="bg-gradient-to-br from-purple-700/80 via-purple-400/60 to-black/60 backdrop-blur-lg rounded-xl shadow-2xl px-7 py-5 text-gray-100 text-base font-montserrat border border-white/20" style={{ boxShadow: '0 12px 48px 0 rgba(168,139,250,0.22)' }}>
                                             {project.description}
                                         </div>
                                     </div>
+                                    <TechIcons tech={project.tech} />
                                     <div className="flex gap-4 mt-auto relative z-10">
                                         {project.link && (
                                             <a
@@ -107,16 +133,16 @@ export default function Projects() {
                                 </div>
                                 {/* Decorative icons only for first project in each row */}
                                 <div className="absolute left-8 bottom-8 flex gap-2">
-                                    <span className="text-3xl text-purple-300">✽</span>
-                                    <span className="text-3xl text-purple-300">✽</span>
+                                    <span className="text-3xl text-purple-300 animate-pulse">✽</span>
+                                    <span className="text-3xl text-purple-300 animate-pulse">✽</span>
                                 </div>
                                 {/* Curved SVG connector to next project with glow */}
                                 {idx < projects.length - 1 && (
                                     <svg
-                                        className="absolute"
+                                        className="absolute animate-fade-in"
                                         style={{
                                             left: isEven ? '60%' : '40%',
-                                            bottom: '-48px',
+                                            bottom: '-32px',
                                             zIndex: 5,
                                             width: '120px',
                                             height: '40px',
@@ -129,16 +155,11 @@ export default function Projects() {
                                         <path
                                             d={isEven ? 'M0,20 Q60,0 120,20' : 'M120,20 Q60,40 0,20'}
                                             stroke="#a78bfa"
-                                            strokeWidth="3"
+                                            strokeWidth="4"
                                             strokeLinecap="round"
-                                            opacity="0.7"
-                                            filter="url(#glow)"
+                                            opacity="0.9"
+                                            style={{ filter: 'drop-shadow(0 0 8px #a259ff)' }}
                                         />
-                                        <defs>
-                                            <filter id="glow" x="-10" y="-10" width="140" height="60">
-                                                <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#a78bfa" flood-opacity="0.5" />
-                                            </filter>
-                                        </defs>
                                     </svg>
                                 )}
                             </div>
