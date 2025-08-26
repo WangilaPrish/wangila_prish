@@ -52,12 +52,11 @@ function About() {
                 .delay-100 { animation-delay: 0.1s; }
                 @keyframes float {
                     0% { transform: translateY(0px) scale(1); }
-                    40% { transform: translateY(-18px) scale(1.03); }
-                    60% { transform: translateY(-18px) scale(1.03); }
+                    50% { transform: translateY(-18px) scale(1.04); }
                     100% { transform: translateY(0px) scale(1); }
                 }
                 .animate-float {
-                    animation: float 4s cubic-bezier(0.4,0,0.2,1) infinite;
+                    animation: float 7s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
                 }
             `}</style>
         </section>
