@@ -61,7 +61,7 @@ function AnimatedCode() {
 export default function Hero() {
     return (
         <section
-            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
+            className="relative flex flex-col justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
         >
             {/* Animated background shapes */}
             <div className="absolute inset-0 pointer-events-none z-0">
@@ -69,24 +69,32 @@ export default function Hero() {
                 <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-2xl animate-pulse" />
             </div>
 
-            <div className="relative z-10 flex-1 flex flex-col justify-center items-start md:ml-16 lg:ml-24">
-                <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white drop-shadow-lg animate-fade-in">
-                    Hi, I'm <span className="text-blue-400">Prish Wangila</span>
+            <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-3xl mx-auto text-center pt-24 pb-16">
+                <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight text-white drop-shadow-lg animate-fade-in">
+                    Prish Wangila
                 </h1>
-                <p className="text-lg md:text-2xl mb-8 max-w-xl text-gray-300 animate-fade-in delay-100">
-                    I'm a <span className="text-blue-300 font-semibold">full-stack developer</span> & <span className="text-blue-300 font-semibold">designer</span> crafting modern, interactive, and responsive web experiences.
+                <div className="text-lg md:text-2xl text-blue-300 font-semibold mb-2 animate-fade-in delay-100">
+                    Full-Stack Developer & Designer
+                </div>
+                <p className="text-base md:text-xl mb-8 max-w-2xl text-gray-300 animate-fade-in delay-200">
+                    I build modern, interactive, and responsive web experiences with a focus on clean code, elegant UI, and seamless user journeys.
                 </p>
                 <Link
                     href="/#projects"
                     scroll={true}
-                    className="inline-flex items-center gap-2 px-7 py-3 bg-blue-700 hover:bg-blue-800 rounded-xl text-white font-semibold shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 animate-fade-in delay-200"
+                    className="inline-flex items-center gap-2 px-8 py-3 bg-blue-700 hover:bg-blue-800 rounded-full text-white font-semibold shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 animate-fade-in delay-300"
                 >
                     See My Work <FaArrowRight className="ml-2" />
                 </Link>
+                {/* Scroll indicator */}
+                <div className="mt-16 flex flex-col items-center animate-fade-in delay-500">
+                    <span className="text-blue-400 text-sm mb-2">Scroll</span>
+                    <span className="w-1.5 h-8 bg-blue-400 rounded-full opacity-60 animate-bounce" />
+                </div>
             </div>
 
-            {/* Animated code snippet on the right */}
-            <div className="relative z-10 flex-1 flex justify-center items-center mt-12 md:mt-0 md:ml-12">
+            {/* Animated code snippet below hero, visually secondary */}
+            <div className="relative z-10 flex justify-center items-center w-full mt-2 md:mt-0">
                 <AnimatedCode />
             </div>
 
@@ -101,6 +109,15 @@ export default function Hero() {
                 }
                 .delay-100 { animation-delay: 0.1s; }
                 .delay-200 { animation-delay: 0.2s; }
+                .delay-300 { animation-delay: 0.3s; }
+                .delay-500 { animation-delay: 0.5s; }
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(12px); }
+                }
+                .animate-bounce {
+                    animation: bounce 1.2s infinite;
+                }
             `}</style>
         </section>
     );
