@@ -33,11 +33,11 @@ function Technologies() {
             </div>
 
             <div className="max-w-5xl mx-auto relative z-10">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-left text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Technologies</h2>
-                <p className="text-gray-300 mb-10 text-lg font-montserrat">Languages, frameworks, and tools I use to build and design modern web experiences.</p>
-                <div className="mb-12">
-                    <h3 className="text-xl font-bold text-blue-300 mb-4 font-montserrat">Languages & Frameworks</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-left text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Technologies</h2>
+                <p className="text-gray-300 mb-12 text-lg font-montserrat">Languages, frameworks, and tools I use to build and design modern web experiences.</p>
+                <div className="mb-16">
+                    <h3 className="text-xl font-bold text-blue-300 mb-6 font-montserrat">Languages & Frameworks</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
                         {languages.map((lang, idx) => (
                             <div
                                 key={lang.name}
@@ -55,9 +55,12 @@ function Technologies() {
                         ))}
                     </div>
                 </div>
+                <div className="flex justify-center my-8">
+                    <span className="block w-2/3 h-0.5 bg-blue-900 rounded-full opacity-40"></span>
+                </div>
                 <div>
-                    <h3 className="text-xl font-bold text-blue-300 mb-4 font-montserrat">Tools</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    <h3 className="text-xl font-bold text-blue-300 mb-6 font-montserrat">Tools</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
                         {tools.map((tool, idx) => (
                             <div
                                 key={tool.name}
