@@ -33,7 +33,7 @@ export default function Navbar() {
                     >
                         <FaGlobe className="text-blue-400 text-2xl animate-spin-slow" />
                         <Link href="/" className="text-2xl font-extrabold tracking-wide hover:text-blue-400 transition-colors font-montserrat">
-                            Wangila
+                            /prish/
                         </Link>
                     </motion.div>
 

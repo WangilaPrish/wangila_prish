@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef } from 'react';
 
 const tools = [
     { name: "Figma", icon: "/figma-outline.svg" },
