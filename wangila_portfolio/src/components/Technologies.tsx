@@ -1,12 +1,12 @@
 "use client";
 
 const languages = [
-    { name: "JavaScript", icon: "/javascript-outline.svg" },
-    { name: "TypeScript", icon: "/typescript-outline.svg" },
-    { name: "Python", icon: "/python-outline.svg" },
-    { name: "Django", icon: "/django-outline.svg" },
-    { name: "Next.js", icon: "/next-outline.svg" },
-    { name: "React", icon: "/react-outline.svg" },
+    { name: "JavaScript", icon: "/logos/javascript-flaticon.svg", link: "https://www.flaticon.com/free-icons/javascript", title: "javascript icons" },
+    { name: "TypeScript", icon: "/logos/typescript-flaticon.svg", link: "https://www.flaticon.com/free-icons/typescript", title: "typescript icons" },
+    { name: "Python", icon: "/logos/python-flaticon.svg", link: "https://www.flaticon.com/free-icons/python-file", title: "python file icons" },
+    { name: "Django", icon: "/logos/django-flaticon.svg", link: "https://www.flaticon.com/free-icons/django", title: "django icons" },
+    { name: "Next.js", icon: "/logos/nextjs.svg", link: "https://nextjs.org/", title: "Next.js logo" },
+    { name: "React", icon: "/logos/react-flaticon.svg", link: "https://www.flaticon.com/free-icons/react", title: "react icons" },
 ];
 
 const tools = [
@@ -40,19 +40,22 @@ function Technologies() {
                     <h3 className="text-xl font-bold text-blue-300 mb-6 font-montserrat">Languages & Frameworks</h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
                         {languages.map((lang, idx) => (
-                            <div
+                            <a
                                 key={lang.name}
+                                href={lang.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={lang.title}
                                 className="flex flex-col items-center gap-3 p-7 bg-white/10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in font-montserrat"
                                 style={{ animationDelay: `${0.1 * idx}s` }}
                             >
                                 <img
                                     src={lang.icon}
                                     alt={lang.name}
-                                    className="w-16 h-16 object-contain drop-shadow-lg mb-2 opacity-80"
-                                    style={{ filter: 'invert(1) grayscale(1)' }}
+                                    className="w-16 h-16 object-contain drop-shadow-lg mb-2"
                                 />
                                 <span className="text-base font-semibold text-blue-200 font-montserrat">{lang.name}</span>
-                            </div>
+                            </a>
                         ))}
                     </div>
                 </div>
