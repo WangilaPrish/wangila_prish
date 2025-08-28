@@ -5,39 +5,30 @@ function About() {
     return (
         <section
             id="about"
-            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
+            className="relative flex flex-col justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
         >
             {/* Animated background shape */}
             <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
 
-            <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 relative z-10 py-10 md:py-0">
-                {/* Image on the left */}
-                <div className="flex-shrink-0 relative animate-fade-in md:mr-10" style={{ height: '30rem', width: '22rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {/* Soft color glow behind image */}
-                    <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                        background: 'radial-gradient(circle at 60% 40%, rgba(168,139,250,0.25) 0%, transparent 70%)',
-                        zIndex: 0
-                    }} />
-                    <img
-                        src="/prishwangila.jpg"
-                        alt="Prish Wangila"
-                        className="w-80 h-110 object-cover rounded-2xl animate-float"
-                        style={{ boxShadow: "0 8px 32px 0 rgba(80,0,120,0.18)", border: "none", zIndex: 1, position: "relative" }}
-                    />
+            <div className="max-w-3xl mx-auto w-full flex flex-col items-center gap-8 relative z-10 py-20 text-center animate-fade-in">
+                <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-blue-200 drop-shadow-lg font-montserrat">About Me</h2>
+                <p className="text-gray-200 mb-6 text-xl font-montserrat leading-relaxed">
+                    I’m a <span className="text-blue-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
+                    With a focus on modern design and clean code, I create projects that are not only functional but visually engaging.
+                </p>
+                <div className="bg-white/5 rounded-xl px-8 py-6 max-w-2xl mx-auto text-gray-100 text-lg font-montserrat shadow-lg">
+                    <div className="mb-2 font-semibold text-blue-300">What I do</div>
+                    <ul className="list-disc list-inside text-left mx-auto max-w-xl">
+                        <li>Build modern web apps with React, Next.js, and TypeScript</li>
+                        <li>Design clean, user-friendly interfaces</li>
+                        <li>Integrate APIs and backend services</li>
+                        <li>Focus on performance, accessibility, and best practices</li>
+                    </ul>
                 </div>
-
-                {/* Text on the right */}
-                <div className="flex-1 flex flex-col justify-center items-start md:ml-8 lg:ml-16 animate-fade-in delay-100">
-                    <h2 className="text-5xl md:text-6xl font-extrabold mb-8 text-blue-200 drop-shadow-lg font-montserrat">About Me</h2>
-                    <p className="text-gray-200 mb-6 text-xl font-montserrat leading-relaxed">
-                        I’m a <span className="text-blue-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
-                        With a focus on modern design and clean code, I create projects that are not only functional but visually engaging.
-                    </p>
-                    <p className="text-gray-200 text-xl font-montserrat leading-relaxed">
-                        I enjoy learning new technologies, exploring design patterns, and continuously improving my skills.<br />
-                        When I’m not coding, you can find me exploring nature, photography, or experimenting with UI/UX design.
-                    </p>
-                </div>
+                <p className="text-gray-400 text-base mt-8 font-montserrat">
+                    Always learning. Always building.<br />
+                    When I’m not coding, I’m exploring design, tech, or the outdoors.
+                </p>
             </div>
 
             {/* Custom keyframes for fade-in animation */}
@@ -48,15 +39,6 @@ function About() {
                 }
                 .animate-fade-in {
                     animation: fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
-                }
-                .delay-100 { animation-delay: 0.1s; }
-                @keyframes float {
-                    0% { transform: translateY(0px) scale(1); }
-                    50% { transform: translateY(-18px) scale(1.04); }
-                    100% { transform: translateY(0px) scale(1); }
-                }
-                .animate-float {
-                    animation: float 7s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
                 }
             `}</style>
         </section>
