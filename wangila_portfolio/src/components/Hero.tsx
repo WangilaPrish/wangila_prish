@@ -28,7 +28,7 @@ function AnimatedCode() {
         return () => clearInterval(interval);
     }, []);
     return (
-    <div className="relative w-[340px] h-[240px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-[#112244]/60 via-[#1a2a4f]/40 to-black/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-blue-400/40" style={{ boxShadow: '0 8px 32px 0 rgba(30,40,80,0.25)', border: '2px solid rgba(45,62,94,0.3)' }}>
+        <div className="relative w-[340px] h-[240px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-[#112244]/60 via-[#1a2a4f]/40 to-black/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-blue-400/40" style={{ boxShadow: '0 8px 32px 0 rgba(30,40,80,0.25)', border: '2px solid rgba(45,62,94,0.3)' }}>
             <div className="absolute -inset-2 rounded-2xl pointer-events-none" style={{
                 background: 'radial-gradient(circle at 80% 20%, rgba(168,139,250,0.15) 0%, transparent 70%)',
                 zIndex: 0
