@@ -7,8 +7,16 @@ function About() {
             id="about"
             className="relative flex flex-col justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
         >
-            {/* Animated background shape */}
-            <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
+            {/* Subtle SVG background graphics */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                <svg width="600" height="600" viewBox="0 0 600 600" fill="none" className="absolute top-[-120px] left-[-120px] opacity-20 blur-2xl">
+                    <circle cx="300" cy="300" r="200" fill="#1a2a4f" />
+                    <circle cx="400" cy="200" r="80" fill="#2d3e5e" />
+                </svg>
+                <svg width="400" height="400" viewBox="0 0 400 400" fill="none" className="absolute bottom-[-80px] right-[-80px] opacity-20 blur-2xl">
+                    <rect x="100" y="100" width="200" height="200" rx="100" fill="#112244" />
+                </svg>
+            </div>
 
             <div className="max-w-4xl mx-auto w-full flex flex-col gap-8 relative z-10 py-20 animate-fade-in">
                 <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-blue-200 drop-shadow-lg font-montserrat">About Me</h2>
