@@ -10,25 +10,29 @@ function About() {
             {/* Animated background shape */}
             <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
 
-            <div className="max-w-3xl mx-auto w-full flex flex-col items-center gap-8 relative z-10 py-20 text-center animate-fade-in">
+            <div className="max-w-4xl mx-auto w-full flex flex-col gap-8 relative z-10 py-20 animate-fade-in">
                 <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-blue-200 drop-shadow-lg font-montserrat">About Me</h2>
-                <p className="text-gray-200 mb-6 text-xl font-montserrat leading-relaxed">
-                    I’m a <span className="text-blue-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
-                    With a focus on modern design and clean code, I create projects that are not only functional but visually engaging.
-                </p>
-                <div className="bg-white/5 rounded-xl px-8 py-6 max-w-2xl mx-auto text-gray-100 text-lg font-montserrat shadow-lg">
-                    <div className="mb-2 font-semibold text-blue-300">What I do</div>
-                    <ul className="list-disc list-inside text-left mx-auto max-w-xl">
-                        <li>Build modern web apps with React, Next.js, and TypeScript</li>
-                        <li>Design clean, user-friendly interfaces</li>
-                        <li>Integrate APIs and backend services</li>
-                        <li>Focus on performance, accessibility, and best practices</li>
-                    </ul>
+                <div className="flex flex-col md:flex-row gap-12">
+                    <div className="flex-1">
+                        <p className="text-gray-200 mb-6 text-xl font-montserrat leading-relaxed">
+                            I’m a <span className="text-blue-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
+                            With a focus on modern design and clean code, I create projects that are not only functional but visually engaging.
+                        </p>
+                        <p className="text-gray-400 text-base mt-4 font-montserrat">
+                            Always learning. Always building.<br />
+                            When I’m not coding, I’m exploring design, tech, or the outdoors.
+                        </p>
+                    </div>
+                    <div className="flex-1 bg-white/5 rounded-xl px-8 py-6 text-gray-100 text-lg font-montserrat shadow-lg self-start">
+                        <div className="mb-2 font-semibold text-blue-300">What I do</div>
+                        <ul className="list-disc list-inside">
+                            <li>Build modern web apps with React, Next.js, and TypeScript</li>
+                            <li>Design clean, user-friendly interfaces</li>
+                            <li>Integrate APIs and backend services</li>
+                            <li>Focus on performance, accessibility, and best practices</li>
+                        </ul>
+                    </div>
                 </div>
-                <p className="text-gray-400 text-base mt-8 font-montserrat">
-                    Always learning. Always building.<br />
-                    When I’m not coding, I’m exploring design, tech, or the outdoors.
-                </p>
             </div>
 
             {/* Custom keyframes for fade-in animation */}
