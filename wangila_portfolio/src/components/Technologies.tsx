@@ -4,6 +4,7 @@ const languages = [
     { name: "JavaScript", icon: "/javascript-outline.svg" },
     { name: "TypeScript", icon: "/typescript-outline.svg" },
     { name: "Python", icon: "/python-outline.svg" },
+    { name: "Django", icon: "/django-outline.svg" },
     { name: "Next.js", icon: "/next-outline.svg" },
     { name: "React", icon: "/react-outline.svg" },
 ];
