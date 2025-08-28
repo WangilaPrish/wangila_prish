@@ -1,5 +1,13 @@
 "use client";
 
+const languages = [
+    { name: "JavaScript", icon: "/javascript-outline.svg" },
+    { name: "TypeScript", icon: "/typescript-outline.svg" },
+    { name: "Python", icon: "/python-outline.svg" },
+    { name: "Next.js", icon: "/next-outline.svg" },
+    { name: "React", icon: "/react-outline.svg" },
+];
+
 const tools = [
     { name: "Figma", icon: "/figma-outline.svg" },
     { name: "Git", icon: "/git-outline.svg" },
@@ -25,24 +33,47 @@ function Technologies() {
             </div>
 
             <div className="max-w-5xl mx-auto relative z-10">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-left text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Tools I Use</h2>
-                <p className="text-gray-300 mb-10 text-lg font-montserrat">My daily toolkit for building, designing, and collaborating.</p>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                    {tools.map((tool, idx) => (
-                        <div
-                            key={tool.name}
-                            className="flex flex-col items-center gap-3 p-7 bg-white/10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in font-montserrat"
-                            style={{ animationDelay: `${0.1 * idx}s` }}
-                        >
-                            <img
-                                src={tool.icon}
-                                alt={tool.name}
-                                className="w-16 h-16 object-contain drop-shadow-lg mb-2 opacity-80"
-                                style={{ filter: 'invert(1) grayscale(1)' }}
-                            />
-                            <span className="text-base font-semibold text-blue-200 font-montserrat">{tool.name}</span>
-                        </div>
-                    ))}
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-left text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Technologies</h2>
+                <p className="text-gray-300 mb-10 text-lg font-montserrat">Languages, frameworks, and tools I use to build and design modern web experiences.</p>
+                <div className="mb-12">
+                    <h3 className="text-xl font-bold text-blue-300 mb-4 font-montserrat">Languages & Frameworks</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                        {languages.map((lang, idx) => (
+                            <div
+                                key={lang.name}
+                                className="flex flex-col items-center gap-3 p-7 bg-white/10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in font-montserrat"
+                                style={{ animationDelay: `${0.1 * idx}s` }}
+                            >
+                                <img
+                                    src={lang.icon}
+                                    alt={lang.name}
+                                    className="w-16 h-16 object-contain drop-shadow-lg mb-2 opacity-80"
+                                    style={{ filter: 'invert(1) grayscale(1)' }}
+                                />
+                                <span className="text-base font-semibold text-blue-200 font-montserrat">{lang.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div>
+                    <h3 className="text-xl font-bold text-blue-300 mb-4 font-montserrat">Tools</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                        {tools.map((tool, idx) => (
+                            <div
+                                key={tool.name}
+                                className="flex flex-col items-center gap-3 p-7 bg-white/10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in font-montserrat"
+                                style={{ animationDelay: `${0.1 * idx}s` }}
+                            >
+                                <img
+                                    src={tool.icon}
+                                    alt={tool.name}
+                                    className="w-16 h-16 object-contain drop-shadow-lg mb-2 opacity-80"
+                                    style={{ filter: 'invert(1) grayscale(1)' }}
+                                />
+                                <span className="text-base font-semibold text-blue-200 font-montserrat">{tool.name}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
