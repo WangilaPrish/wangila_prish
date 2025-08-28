@@ -20,7 +20,7 @@ export default function Navbar() {
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 14 }}
-            className="backdrop-blur-lg bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black text-white shadow-2xl fixed w-full z-50 border-b border-purple-900"
+            className="backdrop-blur-lg bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black text-white shadow-2xl fixed w-full z-50 border-b border-blue-900"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
@@ -31,8 +31,8 @@ export default function Navbar() {
                         transition={{ delay: 0.2, duration: 0.6 }}
                         className="flex-shrink-0 flex items-center gap-2"
                     >
-                        <FaGlobe className="text-purple-400 text-2xl animate-spin-slow" />
-                        <Link href="/" className="text-2xl font-extrabold tracking-wide hover:text-purple-400 transition-colors font-montserrat">
+                        <FaGlobe className="text-blue-400 text-2xl animate-spin-slow" />
+                        <Link href="/" className="text-2xl font-extrabold tracking-wide hover:text-blue-400 transition-colors font-montserrat">
                             Wangila
                         </Link>
                     </motion.div>
@@ -51,13 +51,13 @@ export default function Navbar() {
                                     <Link
                                         href={item.href}
                                         scroll={true}
-                                        className="relative group font-montserrat font-semibold px-4 py-2 flex items-center gap-2 rounded-xl transition-all duration-200 hover:text-purple-400 hover:bg-purple-900/20 shadow-sm"
+                                        className="relative group font-montserrat font-semibold px-4 py-2 flex items-center gap-2 rounded-xl transition-all duration-200 hover:text-blue-400 hover:bg-[#112244]/20 shadow-sm"
                                     >
                                         <span className="text-lg"><Icon /></span>
                                         <span className="tracking-wide">{item.label}</span>
                                         <motion.span
                                             layoutId="underline"
-                                            className="absolute left-0 -bottom-1 w-full h-0.5 bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+                                            className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
                                         />
                                     </Link>
                                 </motion.div>
@@ -70,7 +70,7 @@ export default function Navbar() {
                         <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setIsOpen(!isOpen)}
-                            className="focus:outline-none p-2 rounded-full hover:bg-purple-900/30 transition-colors"
+                            className="focus:outline-none p-2 rounded-full hover:bg-[#112244]/30 transition-colors"
                             aria-label="Toggle Menu"
                             type="button"
                         >
@@ -113,7 +113,7 @@ export default function Navbar() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -40, opacity: 0 }}
                         transition={{ type: "spring", stiffness: 80, damping: 14 }}
-                        className="md:hidden fixed top-16 left-0 w-full bg-gradient-to-r from-[#1A0B2E]/95 via-purple-900/95 to-[#1A0B2E]/95 backdrop-blur-lg shadow-lg z-40"
+                        className="md:hidden fixed top-16 left-0 w-full bg-gradient-to-r from-[#0a1a2f]/95 via-[#112244]/95 to-[#0a1a2f]/95 backdrop-blur-lg shadow-lg z-40"
                     >
                         <div className="px-4 py-4 space-y-2">
                             {menuItems.map((item, i) => {
@@ -128,7 +128,7 @@ export default function Navbar() {
                                         <Link
                                             href={item.href}
                                             scroll={true}
-                                            className="flex items-center gap-2 px-4 py-3 rounded-xl font-montserrat font-semibold text-base hover:text-purple-400 hover:bg-purple-900/30 transition-all duration-200 shadow-sm"
+                                            className="flex items-center gap-2 px-4 py-3 rounded-xl font-montserrat font-semibold text-base hover:text-blue-400 hover:bg-[#112244]/30 transition-all duration-200 shadow-sm"
                                         >
                                             <span className="text-lg"><Icon /></span>
                                             <span className="tracking-wide">{item.label}</span>

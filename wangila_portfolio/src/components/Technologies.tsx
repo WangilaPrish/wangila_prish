@@ -37,20 +37,20 @@ function Technologies() {
     return (
         <section
             id="technologies"
-            className="px-6 md:px-16 py-20 bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black text-white relative overflow-hidden"
+            className="px-6 md:px-16 py-20 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black text-white relative overflow-hidden"
         >
             {/* Animated background shape */}
-            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-purple-700 opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
+            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
 
             <div className="max-w-6xl mx-auto relative z-10">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-purple-300 drop-shadow-lg animate-fade-in font-montserrat">Technologies I Know</h2>
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Technologies I Know</h2>
 
                 <div className="w-full overflow-x-auto pb-4" ref={scrollRef} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     <div className="flex gap-8 items-center min-w-max px-2" style={{ scrollSnapType: 'x mandatory' }}>
                         {technologies.map((tech, idx) => (
                             <div
                                 key={tech.name}
-                                className="flex flex-col items-center gap-3 p-7 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg hover:scale-110 hover:bg-purple-900/30 transition-all duration-300 animate-fade-in font-montserrat"
+                                className="flex flex-col items-center gap-3 p-7 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg hover:scale-110 hover:bg-[#112244]/30 transition-all duration-300 animate-fade-in font-montserrat"
                                 style={{ animationDelay: `${0.1 * idx}s`, scrollSnapAlign: 'center' }}
                             >
                                 <img
@@ -59,7 +59,7 @@ function Technologies() {
                                     className="w-20 h-20 object-contain drop-shadow-lg mb-2"
                                     style={{ filter: 'invert(1) grayscale(1) opacity(0.7)' }}
                                 />
-                                <span className="text-base font-semibold text-purple-200 font-montserrat">{tech.name}</span>
+                                <span className="text-base font-semibold text-blue-200 font-montserrat">{tech.name}</span>
                             </div>
                         ))}
                     </div>

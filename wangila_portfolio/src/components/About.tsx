@@ -5,10 +5,10 @@ function About() {
     return (
         <section
             id="about"
-            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black overflow-hidden"
+            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
         >
             {/* Animated background shape */}
-            <div className="absolute top-0 left-1/2 w-96 h-96 bg-purple-700 opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
+            <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl -translate-x-1/2 animate-pulse z-0" />
 
             <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 relative z-10 py-10 md:py-0">
                 {/* Image on the left */}
@@ -28,9 +28,9 @@ function About() {
 
                 {/* Text on the right */}
                 <div className="flex-1 flex flex-col justify-center items-start md:ml-8 lg:ml-16 animate-fade-in delay-100">
-                    <h2 className="text-5xl md:text-6xl font-extrabold mb-8 text-purple-300 drop-shadow-lg font-montserrat">About Me</h2>
+                    <h2 className="text-5xl md:text-6xl font-extrabold mb-8 text-blue-200 drop-shadow-lg font-montserrat">About Me</h2>
                     <p className="text-gray-200 mb-6 text-xl font-montserrat leading-relaxed">
-                        I’m a <span className="text-purple-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
+                        I’m a <span className="text-blue-400 font-semibold">full-stack developer</span> passionate about crafting interactive and responsive web experiences.<br />
                         With a focus on modern design and clean code, I create projects that are not only functional but visually engaging.
                     </p>
                     <p className="text-gray-200 text-xl font-montserrat leading-relaxed">

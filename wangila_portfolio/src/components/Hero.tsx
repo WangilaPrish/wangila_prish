@@ -28,12 +28,12 @@ function AnimatedCode() {
         return () => clearInterval(interval);
     }, []);
     return (
-        <div className="relative w-[340px] h-[240px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-purple-900/60 via-purple-700/40 to-black/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-400/40" style={{ boxShadow: '0 8px 32px 0 rgba(80,0,160,0.25)', border: '2px solid rgba(168,139,250,0.3)' }}>
+    <div className="relative w-[340px] h-[240px] flex flex-col justify-center items-start overflow-hidden bg-gradient-to-br from-[#112244]/60 via-[#1a2a4f]/40 to-black/60 backdrop-blur-xl rounded-2xl shadow-2xl border border-blue-400/40" style={{ boxShadow: '0 8px 32px 0 rgba(30,40,80,0.25)', border: '2px solid rgba(45,62,94,0.3)' }}>
             <div className="absolute -inset-2 rounded-2xl pointer-events-none" style={{
                 background: 'radial-gradient(circle at 80% 20%, rgba(168,139,250,0.15) 0%, transparent 70%)',
                 zIndex: 0
             }} />
-            <pre className="relative z-10 text-purple-200 text-lg font-mono px-8 py-6 leading-relaxed overflow-hidden w-full h-full">
+            <pre className="relative z-10 text-blue-200 text-lg font-mono px-8 py-6 leading-relaxed overflow-hidden w-full h-full">
                 {codeLines.map((line, i) => (
                     <motion.div
                         key={i}
@@ -61,25 +61,25 @@ function AnimatedCode() {
 export default function Hero() {
     return (
         <section
-            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black overflow-hidden"
+            className="relative flex flex-col md:flex-row justify-center items-center min-h-screen px-6 md:px-16 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black overflow-hidden"
         >
             {/* Animated background shapes */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute top-10 left-1/2 w-96 h-96 bg-purple-700 opacity-30 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 opacity-20 rounded-full blur-2xl animate-pulse" />
+                <div className="absolute top-10 left-1/2 w-96 h-96 bg-[#1a2a4f] opacity-30 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-2xl animate-pulse" />
             </div>
 
             <div className="relative z-10 flex-1 flex flex-col justify-center items-start md:ml-16 lg:ml-24">
                 <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white drop-shadow-lg animate-fade-in">
-                    Hi, I'm <span className="text-purple-400">Prish Wangila</span>
+                    Hi, I'm <span className="text-blue-400">Prish Wangila</span>
                 </h1>
                 <p className="text-lg md:text-2xl mb-8 max-w-xl text-gray-300 animate-fade-in delay-100">
-                    I'm a <span className="text-purple-300 font-semibold">full-stack developer</span> & <span className="text-purple-300 font-semibold">designer</span> crafting modern, interactive, and responsive web experiences.
+                    I'm a <span className="text-blue-300 font-semibold">full-stack developer</span> & <span className="text-blue-300 font-semibold">designer</span> crafting modern, interactive, and responsive web experiences.
                 </p>
                 <Link
                     href="/#projects"
                     scroll={true}
-                    className="inline-flex items-center gap-2 px-7 py-3 bg-purple-600 hover:bg-purple-700 rounded-xl text-white font-semibold shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400 animate-fade-in delay-200"
+                    className="inline-flex items-center gap-2 px-7 py-3 bg-blue-700 hover:bg-blue-800 rounded-xl text-white font-semibold shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 animate-fade-in delay-200"
                 >
                     See My Work <FaArrowRight className="ml-2" />
                 </Link>

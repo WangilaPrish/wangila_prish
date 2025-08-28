@@ -63,13 +63,13 @@ export default function Projects() {
     return (
         <section
             id="projects"
-            className="px-6 md:px-16 py-20 bg-gradient-to-br from-[var(--primary-color)] via-purple-900 to-black text-white relative overflow-hidden"
+            className="px-6 md:px-16 py-20 bg-gradient-to-br from-[var(--primary-color)] via-[#112244] to-black text-white relative overflow-hidden"
         >
             {/* Animated background shape */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-700 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#1a2a4f] opacity-20 rounded-full blur-3xl animate-pulse z-0" />
 
             <div className="max-w-6xl mx-auto relative z-10">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-purple-300 drop-shadow-lg animate-fade-in font-montserrat">Projects</h2>
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center text-blue-200 drop-shadow-lg animate-fade-in font-montserrat">Projects</h2>
 
                 <div className="flex flex-col gap-20 relative">
                     {projects.map((project, idx) => {
@@ -94,7 +94,7 @@ export default function Projects() {
                                     </div>
                                     {/* Project Details */}
                                     <div className="w-full md:w-1/2 flex flex-col justify-center items-start relative">
-                                        <span className="text-purple-400 font-semibold mb-2 text-lg">Featured Project</span>
+                                        <span className="text-blue-400 font-semibold mb-2 text-lg">Featured Project</span>
                                         <h3 className="text-3xl font-bold mb-4 text-white font-montserrat relative z-10">{project.title}</h3>
                                         <div className="mb-4 text-base text-gray-100 font-montserrat">
                                             {project.description}
@@ -106,7 +106,7 @@ export default function Projects() {
                                                     href={project.link}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="px-5 py-2 bg-purple-600 rounded-xl hover:bg-purple-700 transition font-semibold shadow-lg text-white text-base font-montserrat"
+                                                    className="px-5 py-2 bg-blue-700 rounded-xl hover:bg-blue-800 transition font-semibold shadow-lg text-white text-base font-montserrat"
                                                 >
                                                     Live
                                                 </a>
@@ -125,7 +125,7 @@ export default function Projects() {
                                     </div>
                                 </div>
                                 {idx < projects.length - 1 && (
-                                    <hr className="border-t border-purple-700 mx-auto w-3/4 my-0" />
+                                    <hr className="border-t border-blue-900 mx-auto w-3/4 my-0" />
                                 )}
                             </>
                         );
